@@ -71,39 +71,32 @@ model_p = tf.keras.models.load_model(file_location +
     r"\00814-0.000030-0.003213-0.005510-0.000164-0.006277-0.012796.h5")
 
 
-fig = plt.figure(figsize=(5,4)) 
+fig = plt.figure(figsize=(6,5)) 
 ax = fig.add_subplot(111) 
 plt.plot(np.linspace(0.41, 0.80, 40), pi1, c='grey', 
-    marker="*", label="MC", linewidth=2)
+    marker="*", label="raw", linewidth=2)
 plt.scatter(per, pi, c='dodgerblue', marker="s", 
-    label="truncated", linewidth=2)
+    label="truncated dataset", linewidth=2)
 y_pred = model_pi.predict(x_test)
 y_pred_average = [y_pred[i::10] for i in np.arange(10)]
 y_pred_average = np.array(y_pred_average).reshape(-1, 1000)
 y_pred_average = np.mean(y_pred_average, axis=1)
 plt.scatter(per_test, y_pred_average, c='indianred', 
-    label="extrapolated", marker="o", linewidth=2)
+    label="extrapolated dataset", marker="o", linewidth=2)
 # ax.text(0.41, 0.93, '(a)', fontsize=14)
-plt.xlabel('$p$', fontsize=14)
+plt.xlabel('permeability', fontsize=14)
 plt.ylabel('$\Pi(p,L)$', fontsize=14)
 plt.xticks(size=12)
 plt.yticks(size=12)
 plt.xlim(0.39, 0.81)
 plt.ylim(-0.09, 1.09)
+plt.grid(True, linestyle='--', linewidth=1.5)
 plt.legend(loc="lower right")
 ax = plt.gca()
 ax.spines['bottom'].set_linewidth(1.5)
 ax.spines['left'].set_linewidth(1.5)
 ax.spines['top'].set_linewidth(1.5)
 ax.spines['right'].set_linewidth(1.5)
-from pylab import *
-tick_params(which='major', width=2)
-ax.xaxis.set_major_locator(plt.MultipleLocator(0.1))
-ax.yaxis.set_major_locator(plt.MultipleLocator(0.2))
-ax.xaxis.set_minor_locator(plt.MultipleLocator(0.01))
-plt.subplots_adjust(left=None,bottom=None,
-    right=None,top=None,wspace=0.5,hspace=None)
-plt.tight_layout()
 
 # ax = fig.add_subplot(122) 
 # plt.plot(np.linspace(0.41, 0.80, 40), p1, c='grey', marker="*", label="raw", linewidth=2)

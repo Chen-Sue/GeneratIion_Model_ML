@@ -61,13 +61,13 @@ val_ba_60 = read_data(file_location=file_location + r"\data",
     name="train-cnn-pc-binary_accuracy-60")  
 
 loss_61 = read_data(file_location=file_location + r"\data", 
-    name="train-cnn-pc-loss-601")
+    name="train-cnn-pc-loss-61")
 ba_61 = read_data(file_location=file_location + r"\data", 
-    name="train-cnn-pc-binary_accuracy-601")
+    name="train-cnn-pc-binary_accuracy-61")
 val_loss_61 = read_data(file_location=file_location + r"\data", 
-    name="train-cnn-pc-val_loss-601")
+    name="train-cnn-pc-val_loss-61")
 val_ba_61 = read_data(file_location=file_location + r"\data", 
-    name="train-cnn-pc-val_binary_accuracy-601")  
+    name="train-cnn-pc-val_binary_accuracy-61")  
 
 loss_62 = read_data(file_location=file_location + r"\data", 
     name="train-cnn-pc-loss-62")
