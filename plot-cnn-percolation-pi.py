@@ -232,10 +232,11 @@ y_pred_average = np.mean(y_pred_average, axis=1)
 plt.plot(p, y_pred_average, c='m', label='0.10')
 
 
-plt.xlabel('$p$')
+plt.xlabel('percolation')
 plt.ylabel('$\Pi$$^{predict}$(p,L)')
 plt.xlim(0.39, 0.82)
 plt.ylim(-0.1, 1.1)
+plt.grid(True, linestyle='--')
 plt.axhline(y=0.5, color="black", linestyle=":")
 plt.axvline(x=0.593, color="black", linestyle="--")
 plt.legend(loc='upper left')
